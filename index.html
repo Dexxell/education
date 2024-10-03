@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NebulaBrowser</title>
+    <style>
+        body {
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1601086891136-74f84e03e34e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080'); 
+            background-size: cover;
+            background-position: center;
+        }
+        #search-bar, #add-url-input, #url-input {
+            padding: 10px;
+            width: 300px;
+            margin: 10px 0;
+            border: 1px solid #4ecca3;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        #add-url {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #add-url button {
+            padding: 10px;
+            background-color: #4ecca3;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+        #links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        a {
+            color: #4ecca3;
+            text-decoration: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>NebulaBrowser</h1>
+    <input type="text" id="search-bar" placeholder="Search Google..." onkeydown="if (event.key === 'Enter') window.open('https://www.google.com/search?q=' + this.value, '_blank');" />
+    <div id="top-bar">
+        <input type="text" placeholder="Enter website URL" id="url-input" onkeydown="if (event.key === 'Enter') { window.open(this.value.startsWith('http') ? this.value : 'http://' + this.value, '_blank'); this.value=''; }" />
+    </div>
+    <div id="add-url">
+        <input type="text" id="add-url-input" placeholder="Add URL" />
+        <button onclick="addUrl()">+</button>
+    </div>
+    <div id="links">
+        <a href="https://discord.com" target="_blank">Discord</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+        <a href="https://twitch.tv" target="_blank">Twitch</a>
+    </div>
+</body>
+</html>
